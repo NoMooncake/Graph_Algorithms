@@ -3,10 +3,11 @@
  * File Name: Node.java
  * Project: Graph Algorithms
  * Description:
- * [Add brief description here]
+ * Minimal vertex type for a directed graph,
+ * holding a unique name and an adjacency list of outgoing neighbors.
  * <p>
  * Author: Yue Wu
- * Date: 2025/11/1
+ * Date: 2025/11/4
  * Version: 1.0
  * -----------------------------------------------------------------------------
  */

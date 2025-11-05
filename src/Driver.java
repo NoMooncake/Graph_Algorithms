@@ -3,10 +3,12 @@
  * File Name: Driver.java
  * Project: Graph Algorithms
  * Description:
- * [Add brief description here]
+ * Entry point that builds a sample graph (≥6 vertices),
+ * prints original and reversed adjacencies,
+ * computes finish order on the reversed graph, and prints SCCs using Kosaraju.
  * <p>
  * Author: Yue Wu
- * Date: 2025/11/1
+ * Date: 2025/11/4
  * Version: 1.0
  * -----------------------------------------------------------------------------
  */
@@ -14,7 +16,7 @@
 
 /**
  * Driver creates a graph (>= 6 vertices), displays required information,
- * and runs the Strongly Connected Components algorithm (Kosaraju)
+ * and runs the Strongly Connected Components algorithm
  * by calling Graph.getReverse() and Graph.dfsFinishOrder().
  */
 import java.util.*;

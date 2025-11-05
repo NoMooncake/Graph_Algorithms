@@ -3,10 +3,12 @@
  * File Name: Graph.java
  * Project: Graph Algorithms
  * Description:
- * [Add brief description here]
+ * Stores a directed graph of named nodes. Supports creating nodes/edges,
+ * printing adjacency, reversing edges (G^R),
+ * and running DFS to produce a decreasing finish-time order used by SCC.
  * <p>
  * Author: Yue Wu
- * Date: 2025/11/1
+ * Date: 2025/11/4
  * Version: 1.0
  * -----------------------------------------------------------------------------
  */
@@ -19,8 +21,6 @@
  * - dfsFinishOrder: runs DFS on this graph and returns vertices in decreasing finish time
  * - getReverse: builds and returns the edge-reversed graph
  *
- * SCC (Kosaraju) will be assembled in Driver by calling getReverse + dfsFinishOrder,
- * as required in the assignment.
  */
 import java.util.*;
 
@@ -39,19 +39,13 @@ public class Graph {
         u.addNeighbor(v);
     }
 
-    /** @return all nodes (in insertion order) */
+    /** @return all nodes */
     public Collection<Node> getNodes() {
         return nodes.values();
     }
 
-    /** Looks up a node by name, or null if not present. */
-    public Node getNode(String name) {
-        return nodes.get(name);
-    }
-
     /**
      * Builds the reverse graph G^R by reversing every edge direction.
-     * All original vertices are present even if they have no incoming/outgoing edges.
      */
     public Graph getReverse() {
         Graph r = new Graph();
@@ -70,7 +64,7 @@ public class Graph {
 
     /**
      * Runs DFS on this graph and returns a list of vertex names in decreasing finish time.
-     * Implementation: append a vertex to 'post' when its DFS finishes, then reverse the list.
+     * Append a vertex to 'post' when its DFS finishes, then reverse the list.
      */
     public List<String> dfsFinishOrder() {
         Set<String> visited = new HashSet<>();
@@ -84,7 +78,7 @@ public class Graph {
         return post;
     }
 
-    /** Helper DFS that records postorder (finish times). */
+    /** Helper DFS that records postorder. */
     private void dfsPost(Node u, Set<String> visited, List<String> post) {
         visited.add(u.getName());
         for (Node v : u.getNeighbors()) {
