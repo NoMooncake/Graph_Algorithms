@@ -75,8 +75,8 @@ public class Driver {
 
     /**
      * Implements Kosaraju's SCC using:
-     * 1) Finish order from DFS on the reversed graph (already computed)
-     * 2) DFS on the original graph in that order to collect components
+     * Finish order from DFS on the reversed graph
+     * DFS on the original graph in that order to collect components
      */
     private static List<List<String>> stronglyConnectedComponents(Graph g, List<String> orderFromReversed) {
         List<List<String>> result = new ArrayList<>();
